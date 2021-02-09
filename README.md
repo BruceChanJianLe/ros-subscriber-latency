@@ -4,7 +4,7 @@ This repository discuss some reasons of the causes and affects for ROS subscribe
 
 ## Good Practice
 
-This is a simple example of subscriber using lambda function.
+This is a simple example of ROS subscriber using lambda function with no delay.
 ```cpp
 // Please disable the Nagle algorithm on your TCP sockets
 ros::Subscriber sub = nh.subscriber<std_msgs::Bool>("topic_name", 1, 
@@ -15,6 +15,11 @@ ros::Subscriber sub = nh.subscriber<std_msgs::Bool>("topic_name", 1,
     ros::VoidConstPtr(),
     ros::TransportHints().tcpNoDelay()
 )
+```
+
+This is a simple example of ROS bag record with no delay.
+```bash
+rosbag record --tcpnodely
 ```
 
 ## Reference
